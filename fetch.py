@@ -2,15 +2,13 @@ import requests
 from colorama import Fore, Style, init
 import pyfiglet
 
-# Initialize colorama
 init(autoreset=True)
 
-# Function to display the title and co-title
 def display_titles():
     title = pyfiglet.figlet_format("GitHub Fetcher", font="slant")
     co_title = "Made by Cr0mb"
     print(Fore.CYAN + title + Style.RESET_ALL)
-    print(Fore.RED + co_title + Style.RESET_ALL + "\n")  # Smaller title
+    print(Fore.RED + co_title + Style.RESET_ALL + "\n")
 
 def get_repositories(username):
     url = f'https://api.github.com/users/{username}/repos'
