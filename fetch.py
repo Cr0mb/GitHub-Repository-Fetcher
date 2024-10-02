@@ -60,6 +60,12 @@ def clone_repository(repo_url, target_directory):
     else:
         console.print(f"[red]Failed to clone repository.[/red]")
 
+def clone_all_repositories(repositories, target_directory):
+    for repo in repositories:
+        repo_name = repo['name']
+        clone_directory = os.path.join(target_directory, repo_name)
+        clone_repository(repo['clone_url'], clone_directory)
+
 def main():
     console.print("[bold cyan]Welcome to GitHub Repository Manager[/bold cyan]")
     console.print("[bold red]Made by github.com/Cr0mb/[/bold red]")
@@ -73,7 +79,7 @@ def main():
     display_repositories(repositories)
 
     while True:
-        choice = Prompt.ask("Choose an option:\n1. View details about a given repository\n2. Download Repository\n3. Exit", default="3")
+        choice = Prompt.ask("Choose an option:\n1. View details about a given repository\n2. Download Repository\n3. Download All Repositories\n4. Exit", default="4")
 
         if choice == '1':
             repo_number = Prompt.ask("Enter the repository number to view details")
@@ -103,11 +109,19 @@ def main():
                 console.print("[red]Please enter a valid number.[/red]")
 
         elif choice == '3':
+            target_directory = Prompt.ask("Enter the directory to download all repositories to")
+
+            if not os.path.exists(target_directory):
+                os.makedirs(target_directory)
+
+            clone_all_repositories(repositories, target_directory)
+
+        elif choice == '4':
             console.print("[yellow]Exiting...[/yellow]")
             break
 
         else:
-            console.print("[red]Invalid choice. Please select 1, 2, or 3.[/red]")
+            console.print("[red]Invalid choice. Please select 1, 2, 3, or 4.[/red]")
 
 if __name__ == '__main__':
     main()
