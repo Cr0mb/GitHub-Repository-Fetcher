@@ -61,6 +61,7 @@ Calc.py is GUI window based.
 
 .
 
+![image](https://github.com/user-attachments/assets/e5e78fe0-a5b0-4aa5-9692-d9e45d5f809b)
 
 
 ![image](https://github.com/user-attachments/assets/a8a2af6a-3729-49e0-868c-53a1a6cf3eb6)
