@@ -2,6 +2,11 @@
 
 A command-line application to manage and interact with GitHub repositories. This tool allows users to view, clone, and explore repositories of a specified GitHub user.
 
+```
+Fetch.py is terminal based
+Calc.py is GUI window based.
+```
+
 ## Features
 
 - List all repositories of a given GitHub user.
